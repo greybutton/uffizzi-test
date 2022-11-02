@@ -1,0 +1,8 @@
+h4 Set up a new password
+
+= simple_form_for @reset_password_form, url: reset_password_path(token: @token) do |f|
+  p
+    = f.input :password
+    = f.input :password_confirmation
+  p
+    = f.button :submit, 'Save new password'

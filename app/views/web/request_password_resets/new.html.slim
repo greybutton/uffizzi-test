@@ -1,0 +1,6 @@
+h4 Request a password reset
+= simple_form_for @request_password_reset_form, url: request_password_reset_path do |f|
+  p
+    = f.input :email
+  p
+    = f.button :submit, 'Reset password'
