@@ -31,9 +31,6 @@
     "webpacker-react": "^0.3.2"
   },
   "version": "0.1.0",
-  "engines": {
-    "node": "14.18.1"
-  },
   "devDependencies": {
     "@babel/eslint-parser": "^7.15.8",
     "eslint": "^8.1.0",
