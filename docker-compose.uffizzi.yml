@@ -13,7 +13,8 @@ services:
       - 3000:3000
     depends_on:
       - db
-    environment:
+      - redis
+    environment: &app-environment
       DATABASE_USERNAME: postgres
       DATABASE_PASSWORD: postgres
       RAILS_PORT: 3000
@@ -30,3 +31,14 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
+  redis:
+    image: redis:5.0.9-alpine
+  sidekiq:
+    build:
+      context: https://github.com/greybutton/uffizzi-test
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+      - redis
+    command: ["bash", "-c", "bundle exec sidekiq -C config/sidekiq.yml"]
+    environment: *app-environment
