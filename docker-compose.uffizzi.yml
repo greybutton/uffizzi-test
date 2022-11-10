@@ -20,6 +20,7 @@ services:
       RAILS_PORT: 3000
       ROLLBAR_ACCESS_TOKEN: fake
       NEWRELIC_LICENSE_KEY: fake
+      REDIS_URL: "redis://redis"
     deploy:
       resources:
         limits:
