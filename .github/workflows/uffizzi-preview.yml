@@ -45,6 +45,8 @@ jobs:
         uses: actions/checkout@v3
       - name: Render Compose File
         run: |
+          APP_IMAGE=$(echo ${{ needs.build-app.outputs.tags }})
+          export APP_IMAGE
           DATABASE_USERNAME=postgres
           DATABASE_PASSWORD=postgres
           RAILS_PORT=3000
